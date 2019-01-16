@@ -12,14 +12,14 @@ import time
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    #run_test_problem1a()
+    run_test_problem1a()
     #run_test_problem1b()
     run_test_problem1c()
-    #run_test_problem1d()
+    run_test_problem1d()
 
 
 ###############################################################################
-# TODO: 2.  READ the doc-strings for the  sum_of_digits  and  is_prime
+# DONE: 2.  READ the doc-strings for the  sum_of_digits  and  is_prime
 # functions defined below.  They are the same as you have seen before.
 # After you UNDERSTAND the doc-string (JUST the doc-string, NOT the code),
 # ASKING QUESTIONS AS NEEDED, change the above _TODO_ to DONE.
@@ -298,7 +298,11 @@ def problem1b(strings):
     #          Tests have been written for you (above).
     ###########################################################################
 
-
+    seq = []
+    for k in range(len(strings)):
+        if is_prime(len(strings[k])) == True:
+            seq = seq + strings[k]
+    return seq
 
 
 def run_test_problem1c():
@@ -531,17 +535,16 @@ def problem1d(t, sequence):
            FOR HELP if this problem's specification is not clear to you.
      """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     ###########################################################################
 
-    x = len(sequence)//2
+    x = int(len(sequence)/2)
     y = 1
     for k in range(x, len(sequence), 1):
-        if sum_of_digits(sequence[k] * sequence[k+1]) > t:
-            y = y + sequence[k]
-        return y
-    return 1
+        if sum_of_digits(sequence[k]) > t:
+            y = y * sequence[k]
+    return y
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
